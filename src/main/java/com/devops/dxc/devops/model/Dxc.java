@@ -37,7 +37,7 @@ public class Dxc implements Serializable {
     }
 
     public int getSaldo() {
-        return saldo;
+        return getSaldoAhorro(ahorro);
     }
 
     public void setSaldo(int saldo) {
@@ -102,5 +102,12 @@ public class Dxc implements Serializable {
             return (int) (ahorro * 0.1);
         }
     }
+
+    public int getSaldoAhorro(int ahorro) {
+        double noventaxciento = ahorro * 0.9;
+        return (int) noventaxciento;
+    }
+
+
 
 }
