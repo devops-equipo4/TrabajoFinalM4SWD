@@ -36,4 +36,9 @@ public class RestData {
         Dxc response = dXCService.getValue(Integer.parseInt(ahorro), Integer.parseInt(sueldo), uf);
         return response;
     }
+
+  /*  @GetMapping({"/", "/login"})
+    public String index() {
+        return "index";
+    }*/
 }
