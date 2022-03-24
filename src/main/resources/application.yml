@@ -11,3 +11,6 @@ custom:
       connectionRequestTimeout: '${connectionRequestTimeout:2000}'
       connectTimeout: '${connectTimeout:2000}'
       readTimeout: '${readTimeout:2000}'
+
+driver:
+  ruta: '${pathWebdriver:/usr/bin/chromedriver}'
