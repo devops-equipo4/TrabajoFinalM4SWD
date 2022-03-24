@@ -1,8 +1,6 @@
 package com.devops.dxc.devops.model;
 
 import lombok.extern.log4j.Log4j;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 
 import java.io.Serializable;
 
@@ -37,7 +35,7 @@ public class Dxc implements Serializable {
     }
 
     public int getSaldo() {
-        return getSaldoAhorro(ahorro);
+        return calculoSaldo();
     }
 
     public void setSaldo(int saldo) {
@@ -103,11 +101,10 @@ public class Dxc implements Serializable {
         }
     }
 
-    public int getSaldoAhorro(int ahorro) {
-        double noventaxciento = ahorro * 0.9;
+    public int calculoSaldo() {
+        double noventaxciento = ahorro - getRetiro(ahorro, uf);
         return (int) noventaxciento;
     }
-
 
 
 }

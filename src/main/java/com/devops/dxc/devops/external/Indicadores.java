@@ -16,6 +16,7 @@ import java.util.Optional;
 @Log4j
 public class Indicadores {
 
+
     @Autowired
     EndpointIndicadores endpointIndicadores;
 
@@ -23,6 +24,7 @@ public class Indicadores {
     RestTemplateBean restTemplate;
 
     public Double getUF() {
+        log.info("Llamado a endpoint para conseguir UF");
         ResponseEntity<IndicadoresDTO[]> response = restTemplate
                 .customRestTemplate()
                 .getForEntity(endpointIndicadores.getUf().getUrl(), IndicadoresDTO[].class);
