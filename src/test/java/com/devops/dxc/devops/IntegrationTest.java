@@ -1,8 +1,8 @@
 package com.devops.dxc.devops;
 
 import com.devops.dxc.devops.external.Indicadores;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
