@@ -1,4 +1,4 @@
-package com.devops.dxc.devops;
+package com.devops.dxc.devops.selenium;
 
 import org.junit.Before;
 import org.junit.jupiter.api.Test;

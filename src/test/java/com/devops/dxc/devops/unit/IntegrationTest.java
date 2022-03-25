@@ -1,4 +1,4 @@
-package com.devops.dxc.devops;
+package com.devops.dxc.devops.unit;
 
 import com.devops.dxc.devops.external.Indicadores;
 import org.junit.jupiter.api.Test;
