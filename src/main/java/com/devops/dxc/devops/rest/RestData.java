@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @Log4j
+@CrossOrigin()
 @RestController
 @RequestMapping(path = "/rest/msdxc")
 public class RestData {
