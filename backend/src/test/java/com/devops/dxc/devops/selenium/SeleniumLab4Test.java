@@ -18,6 +18,7 @@ public class SeleniumLab4Test {
   public void setUp() {
     System.out.println("Iniciando configuración...");
     System.setProperty("webdriver.chrome.driver","WEBDRIVER");
+    //System.setProperty("webdriver.chrome.driver","drivers/chromedriver");
     driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
