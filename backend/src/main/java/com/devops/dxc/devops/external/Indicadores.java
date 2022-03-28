@@ -25,15 +25,24 @@ public class Indicadores {
 
     public Double getUF() {
         log.info("Llamado a endpoint para conseguir UF");
-        ResponseEntity<IndicadoresDTO[]> response = restTemplate
-                .customRestTemplate()
-                .getForEntity(endpointIndicadores.getUf().getUrl(), IndicadoresDTO[].class);
-        Optional<IndicadoresDTO> dto = List.of(response.getBody()).stream()
-                .filter(i -> i.getCodigo().equals("UF"))
-                .findFirst();
-        if (dto.isEmpty())
-            return null;
-        return Double.valueOf(dto.get().getValor().replace(",", "."));
+        try {
+
+            ResponseEntity<IndicadoresDTO[]> response = restTemplate
+                    .customRestTemplate()
+                    .getForEntity(endpointIndicadores.getUf().getUrl(), IndicadoresDTO[].class);
+            Optional<IndicadoresDTO> dto = List.of(response.getBody()).stream()
+                    .filter(i -> i.getCodigo().equals("UF"))
+                    .findFirst();
+            if (dto.isEmpty()) {
+                log.warn("Endpoint no trae informacion necesaria, se configura un valor por defecto");
+                return 31718.54;
+            }
+            return Double.valueOf(dto.get().getValor().replace(",", "."));
+        } catch (Exception e) {
+            log.error("Enpoint de UF Caido, se confioura valor por defecto");
+            return 31718.54;
+        }
+
     }
 
 
