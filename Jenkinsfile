@@ -1,2 +1,2 @@
-library ('pipeline')
+library ('pipelineLab4')
 ejecucion.call()
