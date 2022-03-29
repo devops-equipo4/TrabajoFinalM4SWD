@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @Log4j
 @CrossOrigin()
 @RestController
-@CrossOrigin
 @RequestMapping(path = "/rest/msdxc")
 public class RestData {
 
