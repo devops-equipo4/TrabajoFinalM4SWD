@@ -1,0 +1,58 @@
+<form autocomplete="off" [formGroup]="frmGroup" (ngSubmit)="onSubmit()">
+    <div style="margin: 20px;">
+        <mat-card *ngIf="IsExecuted == false">
+            <mat-card-header>
+                <mat-card-title>
+                    <h2>Conoce tu 10%</h2>
+                </mat-card-title>
+                <mat-card-subtitle>Favor ingresa los siguientes datos:</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <mat-form-field class="full-width">
+                        <mat-label>Ingresa tu sueldo</mat-label>
+                        <input matInput formControlName="sueldo" placeholder="300000">
+                        <mat-error
+                            *ngIf="frmGroup.controls.sueldo.errors?.pattern || frmGroup.controls.sueldo.errors?.required"
+                            class="text-center">
+                            Ingrese un monto valido.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div style="margin-top: 10px;">
+                    <mat-form-field class="full-width">
+                        <mat-label>Ingresa tu ahorro</mat-label>
+                        <input matInput formControlName="ahorro" placeholder="1000000">
+                        <mat-error
+                            *ngIf="frmGroup.controls.ahorro.errors?.pattern || frmGroup.controls.ahorro.errors?.required"
+                            class="text-center">
+                            Ingrese un monto valido.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button type="submit" mat-raised-button color="primary"
+                    [disabled]="( frmGroup.controls.sueldo.invalid || frmGroup.controls.ahorro.invalid )">Enviar</button>
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card *ngIf="IsExecuted">
+            <mat-card-header>
+                <mat-card-title>Resultado: Conoce tu 10%</mat-card-title>
+                <mat-card-subtitle>Resultado de la consulta</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Tu sueldo es: {{ ResultResponse?.sueldo | number:'':'es-CL' }}</p>
+                <p>Tu ahorro es: {{ ResultResponse?.ahorro | number }}</p>
+                <p>Tu 10% es: {{ ResultResponse?.dxc | number }}</p>
+                <p>Tu saldo será: {{ ResultResponse?.saldo | number }}</p>
+                <p>El impuesto por tu 10%: {{ ResultResponse?.impuesto | number }}</p>
+                <p>UF: {{ ResultResponse?.uf | number }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="volver_OnClick()">Volver</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</form>
