@@ -1,6 +1,5 @@
 package com.devops.dxc.devops.rest;
 
-import com.devops.dxc.devops.configuration.WebDriverChromedriver;
 import com.devops.dxc.devops.external.Indicadores;
 import com.devops.dxc.devops.model.Dxc;
 import com.devops.dxc.devops.service.DXCService;
